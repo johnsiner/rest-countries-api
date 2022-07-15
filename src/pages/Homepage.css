@@ -1,0 +1,130 @@
+.scroll-up {
+   position: fixed;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   top: 85vh;
+   right: 25px;
+   height: 45px;
+   width: 45px;
+   border-radius: 50%;
+   z-index: 100;
+   font-size: 18px;
+}
+
+.scroll-up:hover {
+   cursor: pointer;
+}
+
+.filter {
+   display: flex;
+   gap: 30px;
+   justify-content: space-between;
+   width: 100%;
+   margin-bottom: 40px;
+}
+
+.filter form {
+   display: flex;
+   align-items: center;
+   width: clamp(20rem, 30vw, 36rem);
+   padding: 10px 30px;
+}
+
+.filter form i {
+   margin-right: 25px;
+   color: var(--text-color);
+   opacity: 0.6;
+}
+
+.filter form input {
+   width: 100%;
+   border: none;
+   background-color: var(--bg-element);
+   color: var(--text-color);
+}
+
+.filter form input::placeholder {
+   color: var(--text-color);
+   opacity: 0.6;
+   font-size: 15px;
+}
+
+.filter form input:focus,
+input:active {
+   border: none;
+   outline: none;
+}
+
+.dropdown {
+   position: relative;
+   display: flex;
+   width: 190px;
+   height: 50px;
+   gap: 10px;
+   align-items: center;
+   color: var(--text-color);
+   padding: 0 20px;
+   font-size: 14px;
+}
+
+.sub-dropdown {
+   display: flex;
+   width: 100%;
+   justify-content: space-between;
+}
+
+.dropdown i {
+   transition: all linear 0.2s;
+}
+
+.sub-dropdown:hover,
+.dropdown button:hover {
+   cursor: pointer;
+}
+
+.dropdown.active i {
+   transform: rotate(180deg);
+}
+
+.dropdown.active .dropdown-content {
+   display: block;
+}
+
+.dropdown-content {
+   display: none;
+   position: absolute;
+   top: 55px;
+   left: 0;
+   padding: 10px 20px;
+   list-style: none;
+   width: 190px;
+   margin: 0;
+   z-index: 1000;
+}
+
+.dropdown-content li:not(:last-child) {
+   margin-bottom: 7px;
+}
+
+.dropdown-content li:hover {
+   opacity: .6;
+   cursor: pointer;
+}
+
+.countries {
+   display: grid;
+   gap: 40px;
+   justify-items: center;
+   grid-template-columns: repeat(auto-fit, minmax(25ch, 1fr));
+}
+
+@media (max-width: 630px) {
+   .filter {
+      flex-direction: column;
+   }
+
+   .filter form {
+      width: 100%;
+   }
+}
