@@ -84,6 +84,7 @@ input:active {
 }
 
 .dropdown.active i {
+   -ms-transform: rotate(180deg);
    transform: rotate(180deg);
 }
 

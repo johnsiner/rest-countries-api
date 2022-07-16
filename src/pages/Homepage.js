@@ -36,14 +36,16 @@ export default function Homepage(props) {
 
    let searchList;
    if (search) {
-      searchList = data.filter((country) =>
-         country.name.common.toLowerCase().includes(search.trim().toLowerCase())
+      searchList = data.filter(
+         (country) =>
+            country.name.common
+               .toLowerCase()
+               .includes(search.trim().toLowerCase()) ||
+            country.name.official
+               .toLowerCase()
+               .includes(search.trim().toLowerCase())
       );
    }
-
-   const searchHandler = (e) => {
-      e.preventDefault();
-   };
 
    if (status === 'pending') {
       return <p className="centered">Loading...</p>;
@@ -67,7 +69,7 @@ export default function Homepage(props) {
          )}
 
          <div className="filter">
-            <form className="card" onSubmit={searchHandler}>
+            <form className="card" onSubmit={(e) => e.preventDefault()}>
                <i className="fa-solid fa-magnifying-glass"></i>
                <input
                   type="text"
